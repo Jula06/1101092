@@ -1,0 +1,24 @@
+package basic;
+import javax.swing.*;
+public class Command3 {
+	public static void main(String[] args) {
+		String name ;
+		String old ;
+		String occupation ;
+		String specialskill ;
+		JFrame mywindow = new JFrame();
+		mywindow.setSize(500 ,250);
+		mywindow.setTitle("Calculation");
+		mywindow.setVisible(true);
+		
+		name = JOptionPane.showInputDialog(mywindow, "What is your name?");
+		old = JOptionPane.showInputDialog(mywindow, "How old are you?");
+		occupation = JOptionPane.showInputDialog(mywindow, "What is your occupation?");
+		specialskill = JOptionPane.showInputDialog(mywindow, "What is your special skill?");
+		
+		JOptionPane.showMessageDialog(mywindow, "Name: " + name + "\n" + "Age: " + old + 
+				"\n" + "occupation: " + occupation + "\n" + "special skill: " + specialskill); 
+	
+	}
+	
+}
