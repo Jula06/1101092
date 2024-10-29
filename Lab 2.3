@@ -31,3 +31,42 @@ public class Command3 {
  System.exit(0);
  }
 }
+
+
+
+
+
+package test2;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+public class Command3 {
+ public static void main(String[] args) {
+
+ String name, salary, message;
+ float  salarynum, tax;
+ 
+ JFrame myWindow = new JFrame();
+ myWindow.setSize(300, 200);
+ myWindow.setTitle("My First Java Program");
+ myWindow.setVisible(true);
+
+ name = JOptionPane.showInputDialog(myWindow, "What is your name?");
+ salary = JOptionPane.showInputDialog(myWindow, "What is your salary?");
+ 
+ salarynum = Float.parseFloat(salary);
+ 
+ if (salarynum >= 50000) 
+	 tax = salarynum/100 * 4 ;
+ else if (salarynum >= 30000)
+	 tax = salarynum/100 * 3;
+ else if (salarynum >= 10000) 
+	 tax = salarynum/100 * 1;
+ else 
+	 tax = salarynum/100 * 0;
+
+ message = name + " has to pay " + tax + " baht in income tax . " ;
+ JOptionPane.showMessageDialog(myWindow, message);
+
+ System.exit(0);
+ }
+}
