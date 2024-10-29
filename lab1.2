@@ -1,0 +1,14 @@
+package Test;
+import javax.swing.*; //comment
+	public class Command2 {
+		public static void main(String[] args) {
+			String gpax ;
+			JFrame mywindow = new JFrame();
+			mywindow.setSize(500 ,250);
+			mywindow.setTitle("Calculation");
+			mywindow.setVisible(true);
+			gpax = JOptionPane.showInputDialog(mywindow, "What is your GPAX?");
+			JOptionPane.showMessageDialog(mywindow, "Your GPAX is " + gpax);
+			JOptionPane.showMessageDialog(null, "You are excellent!! ");
+		}
+}
