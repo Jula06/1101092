@@ -1,0 +1,33 @@
+package test2;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+public class Command3 {
+ public static void main(String[] args) {
+
+ String name, salary, message;
+ double  salarynum, tax = 0.0;
+ 
+ JFrame myWindow = new JFrame();
+ myWindow.setSize(300, 200);
+ myWindow.setTitle("My First Java Program");
+ myWindow.setVisible(true);
+
+ name = JOptionPane.showInputDialog(myWindow, "What is your name?");
+ salary = JOptionPane.showInputDialog(myWindow, "What is your salary?");
+ 
+ salarynum =  Double.parseDouble(salary);
+ 
+ if (salarynum >= 50000) {
+	 tax = salarynum * 0.04 ;
+ } else if (salarynum >= 30000) {
+	 tax = salarynum * 0.03 ;
+ } else if (salarynum >= 10000) {
+	 tax = salarynum * 0.01;
+ }
+ 
+ message = name + " has to pay " + tax + " baht in income tax . " ;
+ JOptionPane.showMessageDialog(myWindow, message);
+
+ System.exit(0);
+ }
+}
