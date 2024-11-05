@@ -1,0 +1,63 @@
+package bank;
+	import java.util.Scanner;
+	
+	public class Command4 {
+	 public static void main(String[] args) {
+	 double firstBalance;
+	 Scanner input = new Scanner(System.in);
+	 BankAccount acc1 = new BankAccount();
+	 
+	 System.out.println("How much do you want to open your account?");
+	 firstBalance = input.nextDouble();
+	 acc1.setBalance(firstBalance);
+	 
+	 System.out.printf("1:Balance = %.2f\n", acc1.getBalance());
+	 acc1.withdraw(500.50); //Less than firstBalance
+	 
+	 System.out.printf("2:Balance = %.2f\n", acc1.getBalance());
+	 acc1.deposit(1000.00);
+	 
+	 System.out.printf("3:Balance = %.2f\n", acc1.getBalance());
+	 }
+	}
+
+ package bank;
+
+
+public class BankAccount {
+    private double balance;
+
+    public BankAccount() {
+        this.balance = 0.0;
+    }
+
+    public void setBalance(double amount) {
+        if (amount >= 0) {
+            this.balance = amount;
+        } else {
+            System.out.println("Initial balance cannot be negative.");
+        }
+    }
+
+    public double getBalance() {
+        return balance;
+    }
+
+    public void withdraw(double amount) {
+        if (amount > 0 && amount <= balance) {
+            balance -= amount;
+            
+        } else {
+            System.out.println("Withdrawal amount must be positive and less than or equal to the current balance.");
+        }
+    }
+
+    public void deposit(double amount) {
+        if (amount > 0) {
+            balance += amount;
+           
+        } else {
+            System.out.println("Deposit amount must be positive.");
+        }
+    }
+}
