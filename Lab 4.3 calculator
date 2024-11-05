@@ -1,0 +1,37 @@
+package student;
+
+public class Student {
+
+	 private String stdName, stdID;
+
+	 public Student() {
+	 stdName = "Unknown";
+	 stdID = "xxx";
+	 }
+
+	 public void setStdName(String name) {
+	 stdName = name;
+	 }
+
+	 public String getLogin(String id) {
+	 stdID = id.substring(1,id.length());
+	 return stdID + "\n" ;
+	 }
+	 public String getPassword() {
+	 return  stdName.substring(0,4) + stdID.substring(0,3);
+	}
+}
+
+package calculator;
+
+public class Calculator {
+    public double diff(double num1, double num2) {
+        if (num1 > num2) return num1 - num2 ;
+        else return num2 - num1 ;	
+    } 
+
+    public double times(double num1, double num2) {
+    	if (num1 > num2) return num1 / num2 ;
+        else return num2 / num1 ;
+    }
+}
