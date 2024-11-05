@@ -1,0 +1,48 @@
+package student;
+import java.util.Scanner;
+	public class Command2 {
+	 public static void main(String[] args) {
+	
+	 String name="" ;
+	 String id;
+	 Scanner input = new Scanner(System.in);
+	
+	 Student std1 = new Student();
+	 System.out.printf("Enter your name: ");
+	 name = input.nextLine();
+	
+	 System.out.print("Enter your ID number : ");
+	 id = input.nextLine();
+	
+	 std1.setStdName(name);
+	 System.out.print("Login: " + std1.getLogin(id));
+	
+	 System.out.print("Password: " + std1.getPassword());
+ }
+}
+
+
+
+package student;
+
+public class Student {
+
+	 private String stdName, stdID;
+
+	 public Student() {
+	 stdName = "Unknown";
+	 stdID = "xxx";
+	 }
+
+	 public void setStdName(String name) {
+	 stdName = name;
+	 }
+
+	 public String getLogin(String id) {
+	 stdID = id.substring(1,id.length());
+	 return stdID + "\n" ;
+	 }
+	 public String getPassword() {
+	 return  stdName.substring(0,4) + stdID.substring(0,3);
+	}
+}
