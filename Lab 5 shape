@@ -1,0 +1,64 @@
+package shape;
+
+import java.util.Scanner;
+public class Command2 {
+	public static void main(String[] args) {
+		
+		float side;
+		String shapecolor;
+		
+		Scanner sc = new Scanner(System.in);
+		System.out.print("Enter the shape color: ");
+		shapecolor = sc.next();
+		System.out.print("Enter the square’s side: ");
+		side = sc.nextFloat();
+		
+		Shape square01 = new Shape();
+		
+		square01.setColor(shapecolor);
+		//square01.area(side);
+		//square01.perimeter(side);
+		
+		System.out.println("Square: color = " + square01.getColor());
+		System.out.println("Square: area = " + square01.area(side));
+		System.out.println("Square: perimeter = "+ square01.perimeter(side) );
+		
+	}
+}
+
+
+
+
+
+
+package shape;
+
+public class Shape extends Square {
+	 private String shapecolor ;
+	 public void setColor(String color) {
+		 shapecolor = color ;
+	 }
+	 public String getColor() {
+		 return shapecolor;
+	 }
+}
+
+
+
+
+package shape;
+
+public class Square  {
+	private float side;
+	 public float area(float Sside) {
+		 side = Sside*Sside ;
+		 return side ;
+	 }
+	 
+	 public float perimeter(float Pside) {
+		 side = Pside*4 ;
+		 return side ;
+	 }
+}
+
+
