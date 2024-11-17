@@ -1,0 +1,77 @@
+package exchange;
+
+import java.io.*;
+import java.util.Scanner;
+
+public class Command {
+ public static void main(String[] args) {
+	  
+	 
+ 	String nameRate = "",output="";
+ 	double amount = 0,total=0 , summation =0 ;
+
+ 	
+ 	Exchange money = new Exchange();
+
+ try {
+		FileWriter outfile = new FileWriter("D:/java/ThaiBaht.txt");
+		FileReader infile = new FileReader("D:/java/ExchangeList.txt");
+		Scanner input = new Scanner(infile);
+		while(input.hasNext()) {
+			
+			amount = input.nextDouble();
+			nameRate = input.next();
+			if (nameRate.equals("USD"))
+				total= money.exchangeUSD(amount);
+			else if (nameRate.equals("EURO"))
+				total = money.exchangEURO(amount);
+			else if (nameRate.equals("YEN"))
+				total = money.exchangeYEN(amount);
+			else total = money.exchangePOUND(amount);
+			
+			output = String.format("%.2f %s = %.2f Baht",amount,nameRate,total);
+			outfile.write(output+"\r\n");
+			summation+=total;
+			
+		
+
+	}
+		output = String.format(">>> summation = %.2f Baht",summation);
+		outfile.write(output);
+		
+		infile.close();
+		outfile.close();
+	} catch (IOException error) {
+	error.printStackTrace();
+	 
+	
+ }
+}
+}
+
+
+
+
+
+package exchange;
+
+public class Exchange {
+	private  final double USD_Baht = 30.72  , EURO_Baht = 41.89 , YEN_Baht = 36.97 , POUND_Baht = 48.34 ;
+	
+	 public double  exchangeUSD (double amount  ) {
+		 return amount = amount * USD_Baht ;
+	 }
+	 
+	 public double  exchangEURO (double amount  ) {
+		 return amount * EURO_Baht ;
+	 }
+	 
+	 public double  exchangeYEN (double amount ) {
+		 return amount * YEN_Baht ;
+	 }
+	 
+	 public double  exchangePOUND (double amount  ) {
+		 return amount * POUND_Baht ;
+	 }
+}
+
