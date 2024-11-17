@@ -1,0 +1,101 @@
+package employee;
+
+import java.util.*;
+public class Command3 {
+ public static void main(String [] args) {
+ int id;
+ double income;
+ Scanner input = new Scanner(System.in);
+
+ System.out.print("Enter your id: ");
+ id = input.nextInt();
+ System.out.print("Enter your income: ");
+ income = input.nextDouble();
+ if (id >= 10) {
+ Worker emp01 = new Worker();
+ emp01.setID(id);
+ emp01.setIncome(income);
+ emp01.calBonus(income);
+ System.out.printf("You are Worker, ID %d.\n", emp01.getID());
+ System.out.printf("If your income is %.2f, ", emp01.getIncome());
+ System.out.printf("you'll get %.2f Baht for Bonus!!\n",emp01.getBonus());
+ } else if(id > 0 ) {
+	 Manager emp02 = new Manager();
+	 emp02.setID(id);
+	 emp02.setIncome(income);
+	 emp02.calTax(income); 
+	 System.out.printf("You are Manager, ID %d.\n", emp02.getID());
+	 System.out.printf("If your income is %.2f, ", emp02.getIncome());
+	 System.out.printf(" you need to pay %.2f Baht for Tax !!\n",emp02.getTax());
+ } else {
+	 System.out.printf("Invalid  ID %d !!",id); 
+ }
+ } // End of main()
+} // End of class()
+
+
+
+
+
+package employee;
+
+public class Employee {
+	 private double income ;
+	 private int id ;
+	 
+	 public void setID(int Sid) {
+		 id = Sid ;
+		 }
+	 
+	 public void setIncome(double Sincome) {
+		 income = Sincome ;
+		 }
+	 
+	 public int getID() {
+		 return id ;
+		 }
+	 
+	 public double getIncome() {
+		 return income ;
+		 }
+}
+
+
+
+
+
+
+
+package employee;
+
+public class Manager extends Employee {
+	private double tax ;
+	
+	 public void calTax(double Ctax) {
+		 tax = Ctax * 0.03 ;
+		 }
+	 
+	 public double getTax() {
+		 return tax;
+		 }
+}
+
+
+
+
+
+
+package employee;
+
+public class Worker extends Employee{
+	private double bonus ;
+	
+	 public void calBonus(double cbonus) {
+		 bonus  = cbonus *4;
+		 }
+	 
+	 public double getBonus() {
+		 return bonus  ;
+		 }
+	 
+}
