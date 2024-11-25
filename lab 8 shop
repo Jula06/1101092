@@ -1,0 +1,137 @@
+package shop;
+
+import java.util.Scanner;
+
+import bank.Member;
+
+public class Command3 {
+	public static void main(String[] args) {
+		double discount,price;
+		String productname;
+		double sum = 0;
+		
+		 Scanner input = new Scanner(System.in);
+		 Customer cus = new Customer();
+		 Product pro = new Product();
+		 
+		 System.out.printf("Enter your customer name :");
+		 String name = input.nextLine();
+		 cus.setCustomerName(name);
+		 
+		 System.out.printf("Enter your discount percentage :");
+		 discount=input.nextDouble();
+		 cus.setDiscount(discount);
+		 
+		 System.out.printf("Enter an ordered product :");
+		 productname = input.next();
+		 pro.setProductName(productname);
+		 
+		 System.out.printf("Enter the product price :");
+		 price=input.nextDouble();
+		 pro.setPrice(price);
+		 
+		 Order order = new Order();
+		 
+		 order.setName(cus);
+		 order.setDiscount(cus);
+		 order.setProduct(pro);
+		 order.setPrice(pro);
+		 
+//		 System.out.printf("name: %s\n ",order.getName());
+//		 System.out.printf("name: %s\n ",order.getDiscount());
+//		 System.out.printf("name: %s\n ",order.getProduct());
+//		 System.out.printf("name: %s\n ",order.getPrice());
+		 
+		 sum = order.getPrice()-(order.getPrice()*(order.getDiscount()/100));
+		 
+		 System.out.printf(order.getName() + " orders " + order.getProduct() + " with price " + sum +" Bath.");
+
+		 }
+
+		}
+
+package shop;
+
+public class Customer {
+	private String customername;
+	private double discount;
+	
+	public void setCustomerName(String Cname) {
+		customername = Cname;		
+	}
+	public String getCustomerName() {
+		return customername;
+	}
+	public void setDiscount(double Discount) {
+		discount = Discount;		
+	}
+	public double getDiscount() {
+		return discount;
+	}
+}
+
+
+
+package shop;
+
+public class Order {
+	
+	private Customer cus;
+	private Product pro;
+	
+	public void setName(Customer c) {
+		cus = c;
+	}
+	public String getName() {
+		return cus.getCustomerName();
+	}
+	
+	public void setDiscount(Customer d) {
+		cus = d;
+	}
+	public double getDiscount() {
+		return cus.getDiscount();
+	}
+	
+	public void setProduct(Product p) {
+		pro = p;
+	}
+	public String getProduct() {
+		return pro.getProductName();
+	}
+	
+	public void setPrice(Product r) {
+		pro = r;
+	}
+	public double getPrice() {
+		return pro.getPrice();
+	}
+}
+
+
+
+package shop;
+
+public class Product {
+	private String productname;
+	private double price;
+	
+	public void setProductName(String Pname) {
+		productname = Pname;		
+	}
+	public String getProductName() {
+		return productname;
+	}
+	public void setPrice(double Price) {
+		price = Price;		
+	}
+	public double getPrice() {
+		return price;
+	}
+}
+
+
+
+
+
+
