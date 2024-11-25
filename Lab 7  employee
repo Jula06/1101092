@@ -1,0 +1,139 @@
+package employee;
+
+import java.util.Scanner;
+public class Command2 {
+	public static void main(String[] args) {
+		
+		int id ; 
+		double salary ;
+		Scanner input = new Scanner(System.in);
+		
+		 System.out.print("Enter your id: ");
+		 id = input.nextInt();
+		 
+		 System.out.print("Enter your salary: ");
+		 salary = input.nextDouble();
+
+		 if (id >= 500) {
+			 Worker emp01 = new Worker();
+			 emp01.setID(id);
+			 emp01.setSalary(salary);
+			 System.out.printf("You are Worker, ID %d.\n", emp01.getID());
+			 System.out.printf("Your new salary is %.2f, ", emp01.calSalary(salary));
+			 } else if(id > 0 ) {
+				 Manager emp02 = new Manager();
+				 emp02.setID(id);
+				 emp02.setSalary(salary);; 
+				 System.out.printf("You are Manager, ID %d.\n", emp02.getID());
+				 System.out.printf("Your new salary is %.2f, ", emp02.calSalary(salary,id));
+			 } else {
+				 System.out.printf("Invalid  ID %d !!",id); 
+			 } 
+
+
+
+package employee;
+
+abstract public class Employee {
+protected int id;
+protected double salary;
+
+abstract double calSalary();
+abstract double calSalary(double empSalary);
+abstract double calSalary(double empSalary,int eid);
+
+	public void setID(int empID) {
+	id = empID;
+	}
+	public int getID() {
+		return id;
+	}
+	public void setSalary(double empSalary) {
+	salary = empSalary;
+	}
+	
+}
+
+
+
+
+
+package employee;
+
+public class Manager extends Employee{
+	private int id;
+	private double salary;
+	@Override
+	double calSalary(double empSalary) {
+		salary = empSalary;
+		if (salary>6000) {
+			salary = salary + 500 ;
+		} else if (salary <= 6000) {
+			salary = salary + 1000 ;
+		}else {
+			salary = salary + 1000 ;
+		}
+		
+		return salary;
+	}
+	@Override
+	double calSalary(double empSalary, int eid) {
+		id = eid;
+		salary = empSalary;
+		if(id>300) {
+			salary = salary+(salary*0.06);
+		}else if(id<=300) {
+			salary = salary+(salary*0.04);
+		}
+		return salary;
+	}
+	@Override
+	double calSalary() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+}
+
+
+
+package employee;
+
+public class Worker extends Employee{
+	
+	private double salary;
+
+	@Override
+	double calSalary(double empSalary) {
+		salary = empSalary;
+		if (salary>6000) {
+			salary = salary + 500 ;
+		} else if (salary <= 6000) {
+			salary = salary + 1000 ;
+		}else {
+			salary = salary + 1000 ;
+		}
+		
+		return salary;
+	}
+
+	@Override
+	double calSalary(double empSalary, int eid) {
+		// TODO Auto-generated method stub
+	return 0;
+	}
+
+	@Override
+	double calSalary() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+
+
+}
+
+
+	}
+
+
+}
