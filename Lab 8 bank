@@ -1,0 +1,103 @@
+package bank;
+
+import java.util.Scanner;
+
+public class Command2 {
+	public static void main(String[] args) {
+		
+		String name , mobileNo , account;
+		double accoutBalance = 0 ;
+		Scanner input = new Scanner(System.in);
+		
+		System.out.print("Enter your name : ");
+		name = input.nextLine();
+		
+		System.out.print("Enter cash amount for opening an Account: ");
+		accoutBalance = input.nextDouble();
+		
+		System.out.print("Enter your mobile number: ");
+		mobileNo = input.next();
+		
+		account = mobileNo.substring(0,3) + "-" + mobileNo.charAt(3) + "-" + mobileNo.substring(4,9) + "-" + mobileNo.charAt(9);
+		
+		Member user1 = new Member();
+		user1.setName(name);
+		user1.setMobileNo(mobileNo);
+		
+		Account acc1 = new Account();
+		acc1.setAccount(account);
+		acc1.setBalance(accoutBalance);
+		acc1.setMember(user1);
+		
+		System.out.printf("Account Number: %s\n ",acc1.getAccount());
+		System.out.printf("Name: %s\n ",acc1.getMember().getName());
+		System.out.printf("Balance: %.2f\n ",acc1.getBalance());
+		System.out.printf("Moblie Number: %s\n ",acc1.getMember().getMoblieNo());
+
+		
+
+	}
+
+}
+
+
+
+package bank;
+
+public class Account {
+	Member user ;
+	String account ;
+	double accountBalance;
+	
+	public void setAccount(String ID) {
+		account = ID ;
+	}
+	
+	public String getAccount() {
+		return account ;
+	}
+	
+	public void setBalance(double balance) {
+		accountBalance = balance ;
+	}
+	
+	public double getBalance() {
+		return accountBalance ;
+	}
+	
+	public void setMember(Member member) {
+		user = member ;
+	}
+	
+	public Member getMember() {
+		return user  ;
+	}
+
+}
+
+
+
+
+
+package bank;
+
+public class Member {
+	String memberName , memberMobileNo ;
+	
+	public void setName(String name) {
+		memberName = name ;
+	}
+	
+	public String getName() {
+		return memberName ;
+	}
+	
+	public void setMobileNo(String MoblieNo) {
+		memberMobileNo = MoblieNo ;
+	}
+	
+	public String getMoblieNo() {
+		return memberMobileNo ;
+	}
+
+}
